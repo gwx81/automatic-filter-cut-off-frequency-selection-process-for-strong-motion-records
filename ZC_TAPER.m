@@ -12,8 +12,8 @@ if ii==length(acc)
     acc(1,1)=0;
 end
 for ii=length(acc):-1:2
-    if acc(ii,1)*acc(ii-1,1)<0 && ii<=length(acc)-5
-        TE=(length(acc)-ii+1)*DT;
+    if acc(ii,1)*acc(ii-1,1)<0 && ii<=length(acc)-0.01*length(acc)
+        TE=(length(acc)-ii)*DT;
         break
     end
 end
