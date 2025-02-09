@@ -7,10 +7,9 @@ function fLP=autochoice_fLP(acc,DT,NA,Pt,St,Se)
 %   St: the arrival time of S wave
 %   Se: the end time of S wave
 
-% DC-MEAN
-ADC=DC_mean(acc);
+
 % Zerocrossing_Taper
-AZT=ZC_TAPER(ADC,DT);
+AZT=ZC_TAPER(acc,DT);
 %SNR calculation
 SNR=calculate_SNR(AZT,DT,NA,[0,0.95*Pt],[St,Se]);
 if DT<=0.005

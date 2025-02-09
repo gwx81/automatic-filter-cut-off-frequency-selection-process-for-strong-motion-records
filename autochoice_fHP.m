@@ -15,10 +15,8 @@ yuzhi1=[0.08531	0.0514	0.346	0.410	0.000848	0.000684	0.0172	0.0216	0.0221	0.0281
 yuzhi2=[0.43	0.284	0.207	0.241	0.00618     0.00605     0.0123	0.0135	0.00791	0.00558];%mag>7
 
 %################ FAS calculation ##############
-% DC-MEAN
-ADC=DC_mean(acc);
 % Zerocrossing_Taper
-AZT=ZC_TAPER(ADC,DT);
+AZT=ZC_TAPER(acc,DT);
 % Zero & FAS
 band=0.2;
 method=4;

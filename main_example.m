@@ -1,4 +1,4 @@
-% main_example.m is an example where the autoselection functions applied are autochoice_fLP.m and autochoice_fHP.m
+%%% main_example.m is an example where the autoselection functions applied are autochoice_fLP.m and autochoice_fHP.m
 clear
 close all
 clc
@@ -7,10 +7,11 @@ DT=0.01;%DT is the sampling interval equal to the reciprocal of the sampling fre
 NA=length(data);%NA is the number of points
 mag=4.3;%mag is the magnitude of the earthquake(Ms)
 direction=1;%direction is the direction of the record, EW:1, NS:2, UD:3
-acc=data;%acc is an unprocessed acceleration time series
-Pt=18.56;%Pt is the arrival time of P wave
-St=33.12;%St is the arrival time of S wave
-Se=47.75;%Se is the end time of S wave
+
+Pt=117.6;%Pt is the arrival time of P wave
+St=144.8;%St is the arrival time of S wave
+Se=250;%Se is the end time of S wave
+acc=data-mean(data(1:Pt/DT));%acc is a base-corrected acceleration time series
 %select fHP and fLP
 fLP=autochoice_fLP(acc,DT,NA,Pt,St,Se)%Select the low-pass filter cutoff frequency
 fHP=autochoice_fHP(acc,DT,NA,mag,Pt,direction,fLP)%Select the high-pass filter cutoff frequency
